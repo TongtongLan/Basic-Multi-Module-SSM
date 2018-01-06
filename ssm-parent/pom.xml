@@ -21,6 +21,15 @@
     <properties>
         <!--架包版本变量 start-->
 
+        <!--taotao 导入的依赖-->
+        <jackson.version>2.4.2</jackson.version>
+        <joda-time.version>2.5</joda-time.version>
+        <commons-net.version>3.3</commons-net.version>
+        <pagehelper.version>3.4.2</pagehelper.version>
+        <jsqlparser.version>0.9.1</jsqlparser.version>
+        <jedis.version>2.7.2</jedis.version>
+        <solrj.version>4.10.3</solrj.version>
+
         <!--2016-02-20注释掉代码，切换到spring3试试-->
         <!--mybatis官网看到,如果要使用spring4的话,要用：mybatis-2-spring这个架包,http://blog.mybatis.org/2015/11/spring-4-got-you-down-with-no-ibatis.html-->
         <!--<spring.version>4.0.2.RELEASE</spring.version>-->
@@ -32,14 +41,14 @@
         <spring.version>3.2.16.RELEASE</spring.version>
         <mybatis.version>3.3.1</mybatis.version>
         <mybatis-spring.version>1.2.4</mybatis-spring.version>
-
+        <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
 
         <!--下面这两个是springAOP需要用到-->
         <aspectjweaver.version>1.7.2</aspectjweaver.version>
         <persistence-api.version>1.0.2</persistence-api.version>
 
 
-        <junit.version>4.11</junit.version>
+        <junit.version>4.12</junit.version>
         <mysql-connector.version>5.1.21</mysql-connector.version>
         <druid.version>1.0.4</druid.version>
 
@@ -105,7 +114,6 @@
 
         <!--架包依赖 start-->
         <dependencies>
-
             <!-- ############################################################### Spring 相关包 start ############################################################### -->
             <!--spring 源码包下载地址：https://github.com/spring-projects/spring-framework/releases-->
             <!--http://takeme.iteye.com/blog/1977585-->
@@ -221,6 +229,17 @@
                 <version>${mybatis-spring.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.miemiedev</groupId>
+                <artifactId>mybatis-paginator</artifactId>
+                <version>${mybatis.paginator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper</artifactId>
+                <version>${pagehelper.version}</version>
+            </dependency>
+
 
             <!-- 导入Mysql数据库链接jar包 -->
             <dependency>
@@ -230,6 +249,7 @@
                 <scope>runtime</scope>
             </dependency>
 
+            <!--连接池-->
             <dependency>
                 <!--这个组件具体可以看这里介绍:http://www.oschina.net/p/druid-->
                 <groupId>com.alibaba</groupId>
@@ -264,6 +284,13 @@
                 <artifactId>javaee-api</artifactId>
                 <version>${javaee-api.version}</version>
                 <scope>provided</scope>
+            </dependency>
+
+            <!-- httpclient -->
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
             </dependency>
 
             <!--单元测试-->
@@ -317,15 +344,45 @@
             </dependency>
 
 
-            <!--apache工具包-->
+            <!-- Apache工具组件 -->
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-net</groupId>
+                <artifactId>commons-net</artifactId>
+                <version>${commons-net.version}</version>
+            </dependency>
 
+            <!-- 时间操作组件 -->
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>${joda-time.version}</version>
+            </dependency>
+
+            <!-- Redis客户端 -->
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+            <!-- solr客户端 -->
+            <dependency>
+                <groupId>org.apache.solr</groupId>
+                <artifactId>solr-solrj</artifactId>
+                <version>${solrj.version}</version>
+            </dependency>
 
         </dependencies>
+
         <!--架包依赖 end-->
     </dependencyManagement>
 
